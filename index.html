@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Today I Learned!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght,MONO@200..800,0&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="logo">
+          <img
+            src="logo.png"
+            height="68px"
+            width="68px"
+            alt="today I learnt logo"
+          />
+          <h1>Today I Learned</h1>
+        </div>
+        <button class="btn btn-large">Share a fact</button>
+      </header>
+
+      <form class="fact-form hidden">
+        <div class="small-form">
+          <input
+            class="box"
+            type="text"
+            placeholder="Share a fact with the world..."
+          />
+          <span class="span">200</span>
+          <input type="text" class="box2" placeholder="Trustworthy source..." />
+          <select class="box3">
+            <option value="">choose category</option>
+            <option value="technology">Technology</option>
+            <option value="science">Science</option>
+            <option value="finance">Finance</option>
+          </select>
+        </div>
+        <button class="btn btn-large post-btn">post</button>
+      </form>
+
+      <main class="main">
+        <aside>
+          <ul class="buttons">
+            <li class="cat"><button class="btn btn-all">All</button></li>
+            <li class="cat">
+              <button style="background-color: #3b82f6" class="btn btn-cat">
+                Technology
+              </button>
+            </li>
+            <li class="cat">
+              <button style="background-color: #16a34a" class="btn btn-cat">
+                Science
+              </button>
+            </li>
+            <li class="cat">
+              <button style="background-color: #ef4444" class="btn btn-cat">
+                Finance
+              </button>
+            </li>
+            <li class="cat">
+              <button style="background-color: #eab308" class="btn btn-cat">
+                Society
+              </button>
+            </li>
+            <li class="cat">
+              <button style="background-color: #db2777" class="btn btn-cat">
+                Entertainment
+              </button>
+            </li>
+            <li class="cat">
+              <button style="background-color: #14b8a6" class="btn btn-cat">
+                Health
+              </button>
+            </li>
+            <li class="cat">
+              <button style="background-color: #f97316" class="btn btn-cat">
+                History
+              </button>
+            </li>
+            <li class="cat">
+              <button style="background-color: #8b5cf6" class="btn btn-cat">
+                News
+              </button>
+            </li>
+          </ul>
+        </aside>
+
+        <section>
+          <ul>
+            <li class="fact">
+              <p>
+                React is being developed by Meta (formerly facebook)
+                <a
+                  class="source"
+                  href="https://opensource.fb.com/"
+                  target="_blank"
+                  >(Source)</a
+                >
+              </p>
+              <span class="tag" style="background-color: #3b82f6">
+                technology
+              </span>
+              <div class="vote-button">
+                <button>👍 <strong>24</strong></button>
+                <button>🤯 <strong>9</strong></button>
+                <button>⛔️ <strong>4</strong></button>
+              </div>
+            </li>
+
+            <li class="fact">
+              <p>
+                Millennial dads spend 3 times as much time with their kids than
+                their fathers spent with them. In 1982, 43% of fathers had never
+                changed a diaper. Today, that number is down to 3%"
+                <a
+                  class="source"
+                  href="ttps://www.mother.ly/parenting/millennial-dads-spend-more-time-with-their-kids"
+                  target="_blank"
+                  >(Source)
+                </a>
+              </p>
+              <span class="tag" style="background-color: #eab308">
+                society
+              </span>
+              <div class="vote-button">
+                <button>👍 11</button>
+                <button>🤯 2</button>
+                <button>⛔️ 0</button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+<!-- supabase password ______ harshv111>
