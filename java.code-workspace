@@ -1,0 +1,16 @@
+{
+  "folders": [
+	{
+		"path": "../../java"
+	},
+	{
+		"path": "../../vscode"
+	},
+	{
+		"path": ".."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "crash course"
+  }
+}
