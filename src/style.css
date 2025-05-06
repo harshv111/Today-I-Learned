@@ -1,0 +1,361 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1f2937;
+  color: oklch(0.962 0.018 272.314);
+  margin: 30px;
+  font-weight: 300;
+  padding: 48px 64px 0px;
+  overflow: hidden; /* Prevent scrolling on larger screens */
+  height: 100vh; /* Ensure the body takes the full viewport height */
+}
+
+.hidden {
+  display: none !important;
+  transition-duration: 1sec;
+}
+
+.message {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 24px;
+}
+
+#root {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 48px 64px;
+  height: 100vh; /* Ensure the root container takes the full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1; /* Allow the main content to grow and take available space */
+  display: grid;
+  grid-template-columns: 250px 1fr; /* Two columns: category list and fact list */
+  gap: 48px;
+  height: calc(
+    100vh - 48px - 68px - 40px
+  ); /* Adjust based on header and footer */
+}
+
+@media (max-width: 900px) {
+  /* Allow scrolling on smaller screens */
+  body {
+    overflow: auto; /* Enable scrolling on smaller screens */
+    height: auto; /* Allow the body to grow as needed */
+  }
+
+  .main {
+    grid-template-columns: 1fr; /* Stack elements on top of each other */
+    height: auto; /* Allow the main container to grow as needed */
+  }
+
+  ul.facts-list {
+    max-height: none; /* Remove height restriction on smaller screens */
+    overflow-y: visible; /* Allow the list to grow naturally */
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Take full height of the parent container */
+  overflow: hidden; /* Prevent scrolling on the section itself */
+}
+
+ul.facts-list {
+  overflow-y: auto; /* Enable vertical scrolling */
+  flex-grow: 1; /* Allow the list to grow and take available space */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Optional: Add a scrollbar style for better appearance */
+ul.facts-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+ul.facts-list::-webkit-scrollbar-thumb {
+  background-color: #577b8d;
+  border-radius: 4px;
+}
+
+ul.facts-list::-webkit-scrollbar-thumb:hover {
+  background-color: #344c64;
+}
+
+.header {
+  margin-bottom: 40px;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.disputed {
+  color: #ef4444;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.buttons {
+  list-style: none;
+  margin: 16px;
+}
+
+.logo img {
+  width: 64px;
+  height: 64px;
+}
+
+h1 {
+  font-size: 42px;
+  text-transform: uppercase;
+  font-family: "coiny", sans-serif;
+  margin-bottom: 15px;
+  line-height: 1;
+}
+
+.cat {
+  margin-bottom: 16px;
+}
+
+.fact {
+  font-size: 20px;
+  line-height: 1.4;
+  font-family: "sono", sans-serif;
+  list-style: none;
+  background-color: #334155;
+  margin-bottom: 15px;
+  padding: 16px 30px;
+  letter-spacing: -1px;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+@media (max-width: 1200px) {
+  .fact {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+  }
+}
+
+.vote-button {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-bottom: -5px;
+}
+
+.vote-button button {
+  background-color: #577b8d;
+  border: none;
+  border-radius: 30px;
+  padding: 6px 12px;
+  font-size: 18px;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.vote-button button:hover {
+  background-color: #344c64;
+}
+
+.vote-button button:disabled {
+  background-color: #334155;
+}
+.tag {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: "coiny", sans-serif;
+  padding-top: 3px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 50px;
+}
+
+.source:link,
+.source:visited {
+  color: oklch(0.704 0.04 256.788);
+  margin-left: 18px;
+  transition: 0.3s;
+}
+
+.source:hover,
+.source:active {
+  color: oklch(0.511 0.262 276.966);
+}
+
+.btn {
+  font-family: coiny, sans-serif;
+  text-transform: uppercase;
+  font-size: 17px;
+  padding: 11px 0 13px;
+  border: none;
+  color: inherit;
+  border-radius: 100px;
+  cursor: pointer;
+  background-image: linear-gradient(
+    135deg,
+    #3b82f6,
+    #16a34a,
+    #ef4444,
+    #eab308,
+    #db2777,
+    #14b8a6,
+    #f97316,
+    #8b5cf6
+  );
+}
+
+.btn:hover {
+  transform: scale(110%) skew(5deg);
+  transition: transform 0.3s;
+}
+
+.btn-large {
+  font-size: 30px;
+  padding: 18px 32px 17px;
+}
+
+.btn-all {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.btn-cat {
+  width: 100%;
+  background-image: none;
+}
+
+.post-btn {
+  border-radius: 50px;
+
+  color: inherit;
+
+  max-width: 220px;
+  margin-top: -22px;
+}
+
+.fact-form {
+  list-style: none;
+  background-color: #334155;
+  margin-bottom: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  box-sizing: border-box;
+  max-width: 100%;
+  flex-wrap: none; /* Allow wrapping for smaller screens */
+}
+
+.fact-form input,
+.fact-form select {
+  background-color: #577b8d;
+  border: none;
+  height: fit-content;
+  border-radius: 50px;
+  padding: 16px;
+  font-size: 16px;
+  color: inherit;
+  font-family: "sono", sans serif;
+  max-width: 220px;
+  padding: auto;
+  flex-shrink: 0;
+}
+
+.small-form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-grow: 1; /* Allow the container to grow */
+  margin-top: -20px;
+}
+
+.small-form .box {
+  flex-grow: 1; /* Allow the input to grow dynamically */
+  /* Allow the input to shrink if needed */
+  /* Prevent the input from becoming too small */
+  max-width: 50%; /* Ensure it does not overflow the container */
+  width: auto; /* Allow the width to adjust dynamically */
+}
+
+.fact-form select {
+  color: oklch(0.962 0.018 272.314);
+}
+
+.fact-form span {
+  font-weight: 700;
+  font-size: 18px;
+  background-color: none;
+  border: transparent;
+  height: fit-content;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 40px;
+  font-size: 12px;
+}
+
+@media (max-width: 1200px) {
+  /* body {
+    padding: 32px 48px;*/
+}
+
+.fact-form {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 40px;
+  display: flex;
+  width: auto;
+}
+/* .small-form {
+    display: inline-flex;
+    width: 100%;
+    gap: 16px;
+  }*/
+.small-form {
+  display: flex;
+  flex-direction: column; /* Arrange elements in a column */
+  gap: 16px; /* Add space between elements */
+  flex-wrap: wrap; /* Allow wrapping to prevent overflow */
+  width: 100%; /* Ensure it stretches to fit the parent container */
+  box-sizing: border-box;
+  /* Include padding and borders in width calculations */
+}
+.small-form .box,
+.small-form .box2,
+.small-form .box3 {
+  flex-grow: 1; /* Allow the input to grow dynamically */
+  flex-shrink: 1; /* Allow the input to shrink if needed */
+  max-width: 1000px; /* Prevent the input from shrinking below its content size */
+  width: 100%; /* Ensure it takes the full width of the container */
+}
